@@ -1,0 +1,64 @@
+.container {
+  padding: 10px 100px;
+}
+
+.input-text{
+  display: flex;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.container-cpf{
+  display: flex;
+  padding: 100px 0px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-text-cpf{
+  width: 40%;
+  padding: 12px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.button-submit{
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.text-label{
+  font-size: 18px;
+  font-weight: bold
+}
+
+.snackbarSuccess{
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px 60px;
+  border-radius: 4px;
+}
+
+.snackbarError{
+  background-color: red;
+  color: white;
+  padding: 20px 60px;
+  border-radius: 4px;
+}
+
