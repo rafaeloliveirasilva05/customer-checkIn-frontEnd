@@ -69,7 +69,7 @@ class Sobre extends Component {
               <TableCell align="right">{row.cpf}</TableCell>
               <TableCell align="right">{row.roomType}</TableCell>
               <TableCell align="right">{row.roomNumber}</TableCell>
-              <TableCell align="right">{row.presenceRecord === 'true' ? 'Sim' : 'Não'}</TableCell>
+              <TableCell align="right">{row.presenceRecord ? 'Sim' : 'Não'}</TableCell>
             </TableRow>
           ))}
         </TableBody>

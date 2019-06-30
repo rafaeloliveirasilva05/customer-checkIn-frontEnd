@@ -28,9 +28,9 @@ const userAuthentication = async ({ email, password }) => {
   }
 }
 
-const getClients = async (token, page, rowsPerPage) => {
+const getClients = async (token, numberPage, rowsPerPage) => {
   try {
-    const response = await api.get(`client/listClients?page=${page}&rowsPerPage=${rowsPerPage}`, { headers: { authorization: `Bearer ${token}` } })
+    const response = await api.get(`client/listClients?numberPage=${numberPage}&rowsPerPage=${rowsPerPage}`, { headers: { authorization: `Bearer ${token}` } })
     return response
 
   } catch (error) {
