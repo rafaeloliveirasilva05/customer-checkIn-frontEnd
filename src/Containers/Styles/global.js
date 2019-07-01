@@ -4,7 +4,7 @@ import 'react-circular-progressbar/dist/styles.css'
 
 export default createGlobalStyle`
   * {
-    margin:0;
+    margin: 0;
     padding:0;
     outline:0;
     box-sizing: border-box;
@@ -19,6 +19,7 @@ export default createGlobalStyle`
   }
 
   html,  body, #root {
-    height: 100%
+    height: 100%;
+    padding-left: 10px;
   }
 `

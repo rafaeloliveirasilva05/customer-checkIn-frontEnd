@@ -1,5 +1,13 @@
 import React from 'react'
 import Snackbar from '@material-ui/core/Snackbar'
+import styled from 'styled-components'
+
+const SnackbarSuccess = styled.div`
+  background-color: ${props => props.backgrouncolor};
+  color: white;
+  padding: 20px 60px;
+  border-radius: 4px;
+`
 
 const SnackbarContent = ({ openSnackbar, closeSnackbar, isSnackbar, textError, textSuccess }) => (
   <Snackbar
@@ -9,13 +17,13 @@ const SnackbarContent = ({ openSnackbar, closeSnackbar, isSnackbar, textError, t
     onClose={closeSnackbar}>
     <div>
       {isSnackbar ?
-        <div className={'snackbarSuccess'}>
+        <SnackbarSuccess backgrouncolor={'#4CAF50'}>
           <label>{textSuccess}</label>
-        </div>
+        </SnackbarSuccess>
         :
-        <div className={'snackbarError'}>
+        <SnackbarSuccess backgrouncolor={'red'}>
           <label>{textError}</label>
-        </div>
+        </SnackbarSuccess>
       }
     </div>
   </Snackbar>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-import GlobalStyle from '../../Components/styles/global'
 import { userAuthentication } from '../../functions/fetches'
 import { connect } from 'react-redux'
 import { setUser, setToken } from '../../store/actions'
 
 import './login.css'
+import { Container, ContainerName, InputText, SubmitButton } from './styles'
 
 
 class Login extends Component {
@@ -41,34 +41,26 @@ class Login extends Component {
 
   render() {
     return (
-      <div className='containerLogin'>
-
-        <div className='containerName'>
+      <Container>
+        <ContainerName>
           <label>Login</label>
-          <input
-            className='inputText'
-            name='login'
+          <InputText
             value={this.state.login}
             onChange={this.handleInputChange} />
-        </div>
+        </ContainerName>
 
-        <div className='containerName'>
-          <label >Senha</label>
-          <input
-            className='inputText'
-            name='password'
+        <ContainerName>
+          <label>Senha</label>
+          <InputText
             value={this.state.password}
             onChange={this.handleInputChange} />
-        </div>
+        </ContainerName>
 
-        <button
-          className='button-login'
+        <SubmitButton
           onClick={this.submitLoginData}>
           Logar
-        </button>
-
-        <GlobalStyle />
-      </div>
+        </SubmitButton>
+      </Container>
     )
   }
 }

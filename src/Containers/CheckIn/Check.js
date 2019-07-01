@@ -7,7 +7,17 @@ import { registerClientInput, getClient } from '../../functions/fetches'
 import ModalDialog from '../../Components/Dialog'
 import SnackbarContent from '../../Components/SnackbarContent'
 import 'react-activity/dist/react-activity.css'
-import './Check.css'
+
+import {
+  ContainerData,
+  ContainerButton,
+  ContainerInput,
+  Container,
+  ContainerCpf,
+  Button,
+  ContainerText
+} from './styles'
+
 
 class Check extends Component {
   state = {
@@ -71,21 +81,18 @@ class Check extends Component {
 
   renderCpf = () => {
     return (
-      <div className='container-cpf'>
-        <div style={{ width: '40%' }}>
-          <label style={{ fontSize: 20 }}>Cpf do cliente</label>
-        </div>
+      <ContainerCpf>
+        <label >Cpf do cliente</label>
         <input
           placeholder={'Entre com o cpf do cliente...'}
-          className='input-text-cpf'
           type='text'
           name='cpf'
           value={this.state.cpf}
           onChange={this.handleChange.bind(this)} />
 
         {this.state.cpf &&
-          <button
-            className='button-submit'
+          <Button
+            background={'#4CAF50'}
             onClick={this.handleSubmit}
             disabled={this.state.isLoading}>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 25 }} >
@@ -95,9 +102,9 @@ class Check extends Component {
                 {this.state.isLoading && <Spinner color={'white'} size={15} />}
               </div>
             </div>
-          </button>
+          </Button>
         }
-      </div>
+      </ContainerCpf>
     )
   }
 
@@ -106,69 +113,60 @@ class Check extends Component {
     if (!this.state.DataClient) return null
 
     return (
-      <div >
-        <div style={{ padding: 10, marginBottom: 10 }}>
-          <label className={'text-label'}> Nome </label>
-          <div className='input-text' style={{ marginTop: 10, marginBottom: 10 }}>
-            <label> {DataClient.name} </label>
+      <ContainerInput >
+        <ContainerText>
+          <label> Nome </label>
+          <div>
+            <label>{DataClient.name}</label>
           </div>
-        </div>
+        </ContainerText>
 
-        <div style={{ flexDirection: 'row', display: 'flex' }} >
-          <div style={{ width: 200, paddingLeft: 10, paddingRight: 10 }}>
-            <label className={'text-label'}> Pago </label>
-            <div
-              className='input-text'
-              style={{ marginTop: 10, marginBottom: 10 }}>
+        <ContainerData >
+          <ContainerText>
+            <label> Pago </label>
+            <div>
               <label> {DataClient.pago === 'true' ? 'Sim' : 'Não'} </label>
             </div>
-          </div>
+          </ContainerText>
 
           {true &&
-            <div style={{ marginLeft: 10, paddingLeft: 10, paddingRight: 10 }}>
-              <label className={'text-label'}> Parcelas Restante </label>
-              <div
-                className='input-text'
-                style={{ marginTop: 10, marginBottom: 10 }}>
+            <ContainerText marginLeft={'10px'}>
+              <label> Parcelas Restante </label>
+              <div>
                 <label> 3 </label>
               </div>
-            </div>}
+            </ContainerText>}
 
-          <div style={{ flex: 1, marginLeft: 10, paddingLeft: 10, paddingRight: 10 }}>
-            <label className={'text-label'}> Tipo da Acomodação </label>
-            <div
-              className='input-text'
-              style={{ marginTop: 10, marginBottom: 10 }}>
+          <ContainerText marginLeft={'10px'}>
+            <label> Tipo da Acomodação </label>
+            <div>
               <label>{DataClient.roomType}</label>
             </div>
-          </div>
+          </ContainerText>
 
-          <div style={{ marginLeft: 10, paddingLeft: 10, paddingRight: 10 }}>
-            <label className={'text-label'}> Número do quarto </label>
-            <div
-              className='input-text'
-              style={{ marginTop: 10, marginBottom: 10 }}>
+          <ContainerText marginLeft={'10px'}>
+            <label> Número do quarto </label>
+            <div>
               <label>{DataClient.roomNumber}</label>
             </div>
-          </div>
-        </div>
+          </ContainerText>
+        </ContainerData>
 
-        <div style={{ display: 'flex', marginTop: 30, justifyContent: 'flex-end' }}>
-          <button
-            style={{ marginLeft: 10, backgroundColor: 'red' }}
-            className='button-submit'
+        <ContainerButton>
+          <Button
+            background={'red'}
             onClick={() => this.setState({ DataClient: null, cpf: '' })}>
             Cancelar
-          </button>
+          </Button>
 
-          <button
-            style={{ marginLeft: 10, }}
-            className='button-submit'
+          <Button
+            background={'#4CAF50'}
+            marginLeft={'10px'}
             onClick={() => this.setState({ openDiolog: true })}>
             Confirmar
-          </button>
-        </div>
-      </div>
+          </Button>
+        </ContainerButton>
+      </ContainerInput>
     )
   }
 
@@ -192,11 +190,11 @@ class Check extends Component {
 
   render() {
     return (
-      <div className={'container'}>
+      <Container>
         {this.mySnackbarContentWrapper()}
         {this.state.DataClient && this.renderDialog()}
         {this.state.DataClient ? this.renderInput() : this.renderCpf()}
-      </div>
+      </Container>
     )
   }
 }
