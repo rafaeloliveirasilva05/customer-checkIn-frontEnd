@@ -4,7 +4,6 @@ import App from './Containers/App';
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './store'
-import GlobalStyles from './Containers/Styles/global'
 
 ReactDOM.render(
   <BrowserRouter>

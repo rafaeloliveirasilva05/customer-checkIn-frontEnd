@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Spinner } from 'react-activity'
 
-import testeHoc from '../Header/testeHoc'
 import { registerClientInput, getClient } from '../../functions/fetches'
 import ModalDialog from '../../Components/Dialog'
 import SnackbarContent from '../../Components/SnackbarContent'
@@ -22,7 +21,7 @@ import {
 class Check extends Component {
   state = {
     DataClient: null,
-    cpf: '',
+    cpf: '203777818',
     setOpen: false,
     openDiolog: false,
     openSnackbar: false,
@@ -203,4 +202,4 @@ const mapStateToProps = state => ({
   ...state
 })
 
-export default testeHoc(connect(mapStateToProps, null)(Check))
+export default connect(mapStateToProps, null)(Check)

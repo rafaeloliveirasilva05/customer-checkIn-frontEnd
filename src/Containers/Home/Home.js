@@ -16,4 +16,4 @@ class Home extends Component {
   }
 }
 
-export default testeHoc(Home)
+export default Home

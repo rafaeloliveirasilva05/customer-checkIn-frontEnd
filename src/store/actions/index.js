@@ -11,3 +11,10 @@ export const setToken = (token) => {
     token
   }
 }
+
+export const setIsOpenSideDrawer = (isOpenSideDrawer) => {
+  return{
+    type: 'SET_IS_OPEN_SIDE_DRAWER',
+    isOpenSideDrawer
+  }
+}

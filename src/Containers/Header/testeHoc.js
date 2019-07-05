@@ -1,5 +1,7 @@
 import React from 'react'
 import Header from './Header'
+import Toolbar from './Toolbar/Toolbar'
+
 
 const withHeader = (OriginalComponent) => {
   return class extends React.Component {
@@ -7,7 +9,7 @@ const withHeader = (OriginalComponent) => {
     render() {
       return (
         <div>
-          <Header />
+          <Toolbar />
           <OriginalComponent />
         </div>
       )

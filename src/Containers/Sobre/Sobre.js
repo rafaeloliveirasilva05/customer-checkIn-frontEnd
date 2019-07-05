@@ -9,7 +9,6 @@ import LinearProgress from '@material-ui/core/LinearProgress'
 import TableFooter from '@material-ui/core/TableFooter'
 import TablePagination from '@material-ui/core/TablePagination'
 
-import testeHoc from '../Header/testeHoc'
 import { getClients } from '../../functions/fetches'
 import { connect } from 'react-redux'
 import { Container } from './styles'
@@ -107,4 +106,4 @@ const mapStateToProps = state => ({
   ...state
 })
 
-export default testeHoc(connect(mapStateToProps, null)(Sobre))
+export default connect(mapStateToProps, null)(Sobre)

@@ -6,6 +6,7 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   padding: 1px 50px;
+  margin-top: 100px;
 `
 
 export const ContainerCpf = styled.div`
@@ -19,6 +20,7 @@ export const ContainerCpf = styled.div`
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #FFFFFF			
   }
 
   label {
@@ -45,6 +47,7 @@ export const ContainerText = styled.div`
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #FFFFFF;
   }
 `
 
@@ -67,7 +70,7 @@ export const ContainerButton = styled.div`
   display: flex;
   justify-content:flex-end;
   flex-direction: row;
-  @media(max-width: 900px) {
+  @media(max-width: 768px) {
     flex-direction: column;
     justify-content:center;
     align-items: center;
@@ -81,10 +84,20 @@ export const Button = styled.button`
   margin-left: ${props => props.marginLeft};
   margin-top: 10px;
   color: white;
-  padding: 10px 100px;
+  font-size: 18px;
+  padding: 10px ;
+  width: 30%;
   border: none;
   border-radius: 4px;
-  @media(max-width: 900px) {
+  min-width: 20px;
+ 
+  @media(max-width: 768px) {
     margin-left: 0;
+    width: 50%
+  }
+
+  @media(max-width: 500px) {
+    margin-left: 0;
+    width: 100%
   }
 `

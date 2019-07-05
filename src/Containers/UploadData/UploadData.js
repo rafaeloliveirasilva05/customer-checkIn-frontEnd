@@ -6,7 +6,6 @@ import Papa from 'papaparse'
 import { Container, Content } from './styles'
 import api from '../../services/api'
 import Upload from '../../Components/upload'
-import testeHoc from '../Header/testeHoc'
 import FileList from '../../Components/FileList'
 
 class UploadData extends Component {
@@ -66,4 +65,4 @@ const mapStateToProps = state => ({
   ...state
 })
 
-export default testeHoc(connect(mapStateToProps, null)(UploadData))
+export default connect(mapStateToProps, null)(UploadData)

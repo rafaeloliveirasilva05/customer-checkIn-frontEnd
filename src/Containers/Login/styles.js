@@ -6,7 +6,6 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #ccffcc;
 `
 
 export const ContainerName = styled.div`
@@ -23,7 +22,7 @@ export const InputText = styled.input`
   padding: 12px 10px;
   margin: 8px 0;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 50px;
   box-sizing: border-box;
 `
 

@@ -8,12 +8,17 @@ import Sobre from './Sobre/Sobre'
 import Check from './CheckIn/Check'
 import Login from './Login'
 
+import Toolbar from './Header/Toolbar/Toolbar'
+
 const PrivateRoute = ({ component: Component, isAuthenticate, ...rest }) => (
   <Route
     {...rest}
     render={props => isAuthenticate()
       ?
-      <Component {...props} />
+      <div>
+        <Toolbar />
+        <Component {...props} />
+      </div>
       :
       <Redirect to={{ pathname: 'Login', state: { from: props.location } }} />
     }
@@ -31,19 +36,12 @@ class Navigation extends Component {
     return (
       <main>
         <Switch>
-          <Route exact path='/' component={Home}  />
-          <Route path='/uploadData' component={UploadData}  />
-          <Route path="/sobre" component={Sobre}  />
-          <Route path="/check" component={Check}  />
-          <Route path="/login" component={Login} />
-        </Switch>
-        {/* <Switch>
           <PrivateRoute exact path='/' component={Home} isAuthenticate={this.isAuthenticate} />
           <PrivateRoute path='/uploadData' component={UploadData} isAuthenticate={this.isAuthenticate} />
           <PrivateRoute path="/sobre" component={Sobre} isAuthenticate={this.isAuthenticate} />
           <PrivateRoute path="/check" component={Check} isAuthenticate={this.isAuthenticate} />
           <Route path="/login" component={Login} />
-        </Switch> */}
+        </Switch>
       </main>
     )
   }
