@@ -14,7 +14,9 @@ import {
   Container,
   ContainerCpf,
   Button,
-  ContainerText
+  ContainerText,
+  Label,
+  LabelCpf
 } from './styles'
 
 
@@ -49,6 +51,14 @@ class Check extends Component {
       return
     }
 
+    // if (resp.data.dataClient.presenceRecord) {
+    //   this.setState({
+    //     isLoading: false
+    //   })
+    //   alert('Cliente já relizadou check-In')
+    //   return
+    // }
+
     this.setState({
       DataClient: resp.data.dataClient,
       isLoading: false
@@ -81,7 +91,7 @@ class Check extends Component {
   renderCpf = () => {
     return (
       <ContainerCpf>
-        <label >Cpf do cliente</label>
+        <LabelCpf >Cpf do cliente</LabelCpf>
         <input
           placeholder={'Entre com o cpf do cliente...'}
           type='text'
@@ -114,7 +124,7 @@ class Check extends Component {
     return (
       <ContainerInput >
         <ContainerText>
-          <label> Nome </label>
+          <Label> Nome </Label>
           <div>
             <label>{DataClient.name}</label>
           </div>
@@ -122,7 +132,7 @@ class Check extends Component {
 
         <ContainerData >
           <ContainerText>
-            <label> Pago </label>
+            <Label> Pago </Label>
             <div>
               <label> {DataClient.pago === 'true' ? 'Sim' : 'Não'} </label>
             </div>
@@ -130,21 +140,21 @@ class Check extends Component {
 
           {true &&
             <ContainerText marginLeft={'10px'}>
-              <label> Parcelas Restante </label>
+              <Label> Parcelas Restante </Label>
               <div>
                 <label> 3 </label>
               </div>
             </ContainerText>}
 
           <ContainerText marginLeft={'10px'}>
-            <label> Tipo da Acomodação </label>
+            <Label> Tipo da Acomodação </Label>
             <div>
               <label>{DataClient.roomType}</label>
             </div>
           </ContainerText>
 
           <ContainerText marginLeft={'10px'}>
-            <label> Número do quarto </label>
+            <Label> Número do quarto </Label>
             <div>
               <label>{DataClient.roomNumber}</label>
             </div>

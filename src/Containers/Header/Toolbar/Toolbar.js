@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setIsOpenSideDrawer } from '../../../store/actions'
+import { FaSignOutAlt } from 'react-icons/fa'
 
 import {
   ToolbarHeader,
@@ -30,7 +31,11 @@ class toolbar extends React.Component {
               <div><Link to="/uploadData">Upload CSV</Link></div>
               <div><Link to="/sobre">Clientes</Link></div>
               <div><Link to="/check">Check-In</Link></div>
-              <div><Link to="/login">Sair</Link></div>
+              <div style={{ marginLeft: '20px' }}>
+                <Link to="/login">
+                  <FaSignOutAlt size={24} />
+                </Link>
+              </div>
             </ul>
           </Toolbar__navigation_items>
         </Toolbar__navigation>

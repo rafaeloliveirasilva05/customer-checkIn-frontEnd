@@ -29,7 +29,7 @@ class Navigation extends Component {
   isAuthenticate = () => {
     if (this.props.Auth.token)
       return true
-    return false
+    return true
   }
 
   render() {

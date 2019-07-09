@@ -35,15 +35,17 @@ export const Spacer = styled.div`
 
 export const Toolbar__navigation_items = styled.div`
   ul {
+    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    
   }
 
   div {
-    padding: 0 0.5rem
+    padding: 0 0.5rem;
+    font-weight: bold;
+    font-size: 18px;
   }
 
   a {

@@ -9,21 +9,26 @@ export const Container = styled.div`
 `
 
 export const ContainerName = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; 
+  width: 60%;
+  max-width: 300px;
+
+  label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #ccc
+  }
 `
 
 export const InputText = styled.input`
-  width: 60%;
-  max-width: 300px;
+  width: 100%;
   padding: 12px 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 50px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
   box-sizing: border-box;
+
+  :focus{
+    border-color: #4CAF50;
+  }
 `
 
 export const SubmitButton = styled.button`
@@ -32,6 +37,8 @@ export const SubmitButton = styled.button`
   margin-top: 40px;
   background-color: #4CAF50;
   color: white;
+  font-weight: bold;
+  font-size: 18px;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;

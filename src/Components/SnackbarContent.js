@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const SnackbarSuccess = styled.div`
   background-color: ${props => props.backgrouncolor};
+  margin-top: 100px;
   color: white;
   padding: 20px 60px;
   border-radius: 4px;

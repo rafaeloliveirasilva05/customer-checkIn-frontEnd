@@ -14,41 +14,51 @@ export const ContainerCpf = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 400px;
+
   input {
     max-width: 400px;
     padding: 12px 10px;
-    border: 1px solid #ccc;
+    margin-top: 8px;
+    border: 2px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    background-color: #FFFFFF			
-  }
-
-  label {
-    font-size: 16px;
-    @media(min-width: 400px) {
-      font-size: 30px
+    background-color: #FFFFFF;
+    :focus {
+      border-color: #4CAF50;
     }
+  }
+`
+
+export const LabelCpf = styled.label`
+  font-size: 16px;
+  color: #808080;
+  font-weight: bold;
+  @media(min-width: 400px) {
+    font-size: 24px;
+    
   }
 `
 
 export const ContainerText = styled.div`
   margin-left: ${props => props.marginLeft};
   width: 100%;
+  margin-bottom: 22px;
   @media(max-width: 900px){
     margin-left: 0
   }
-  label {
-    font-size: 18px;
-    font-weight: bold
-  }
   div {
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     background-color: #FFFFFF;
   }
+`
+
+export const Label = styled.label`
+    font-size:18px;
+    color: #808080;
+    font-weight:bold;
 `
 
 export const ContainerData = styled.div`
@@ -82,14 +92,15 @@ export const Button = styled.button`
   cursor: pointer;
   background-color: ${props => props.background};
   margin-left: ${props => props.marginLeft};
-  margin-top: 10px;
+  margin-top: 22px;
   color: white;
   font-size: 18px;
-  padding: 10px ;
+  padding: 8px ;
   width: 30%;
   border: none;
   border-radius: 4px;
   min-width: 20px;
+  font-weight: bold;
  
   @media(max-width: 768px) {
     margin-left: 0;
