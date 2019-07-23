@@ -14,23 +14,25 @@ class UploadData extends Component {
   }
 
   handleUpload = files => {
-    const file = files[0]
+    if (window.confirm('Aviso\nOs registros dos clientes serão perdidos, tem certeza que deseja continuar?')) {
+      const file = files[0]
 
-    Papa.parse(file, {
-      complete: (result) => {
-        const uploadedFiles = {
-          data: result.data,
-          name: file.name,
-          readableSize: filesize(file.size),
-          uploaded: false,
-          error: false
-        }
+      Papa.parse(file, {
+        complete: (result) => {
+          const uploadedFiles = {
+            data: result.data,
+            name: file.name,
+            readableSize: filesize(file.size),
+            uploaded: false,
+            error: false
+          }
 
-        this.setState({ uploadedFiles })
-        this.processUpload(uploadedFiles)
-      },
-      header: true
-    })
+          this.setState({ uploadedFiles })
+          this.processUpload(uploadedFiles)
+        },
+        header: true
+      })
+    }
   }
 
   updateFile = (data) => {
