@@ -15,7 +15,8 @@ export const Container = styled.div`
 export const Box = styled.div`
   display: flex;
   height: 100px;
-  width: 250px;
+  padding-right: 25.31px;
+  width: 230px;
   background: ${props => props.color};
   border-radius: 4px;
   align-items: center;

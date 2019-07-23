@@ -60,9 +60,20 @@ const registerClientInput = async (token, cpf) => {
   }
 }
 
+const showCustomerInputData = async (token) => {
+  try {
+    const response = await api.get('client/presenceData')
+    return response
+
+  } catch (error) {
+    errorHandling(error)
+  }
+}
+
 export {
   userAuthentication,
   getClients,
   getClient,
-  registerClientInput
+  registerClientInput,
+  showCustomerInputData
 }
