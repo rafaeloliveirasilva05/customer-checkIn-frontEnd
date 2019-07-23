@@ -50,6 +50,7 @@ class Login extends Component {
         <ContainerName style={{ marginBottom: '18px' }}>
           <label>Usuário</label>
           <InputText
+            name='login'
             value={this.state.login}
             onChange={this.handleInputChange} />
         </ContainerName>
@@ -57,6 +58,7 @@ class Login extends Component {
         <ContainerName>
           <label>Senha</label>
           <InputText
+            name='password'
             value={this.state.password}
             onChange={this.handleInputChange} />
         </ContainerName>

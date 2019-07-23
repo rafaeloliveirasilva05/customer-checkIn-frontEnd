@@ -41,28 +41,25 @@ class Check extends Component {
     this.setState({ isLoading: true })
     const resp = await getClient(this.props.Auth.token, this.state.cpf)
 
+    this.setState({ isLoading: false })
+
+    if (resp.data.dataClient.presenceRecord) {
+      setTimeout(() => {
+        alert(`\nATENÇÃO \n\n${resp.data.dataClient.name} \njá realizou check-in.`) // eslint-disable-line no-undef
+      }, 100)
+      return
+    }
+
     if (!resp.data.dataClient) {
       this.setState({
         openSnackbar: true,
         snackbar: false,
-        isLoading: false,
         textErrorSnackbar: 'Cliente não encontrado.'
       })
       return
     }
 
-    // if (resp.data.dataClient.presenceRecord) {
-    //   this.setState({
-    //     isLoading: false
-    //   })
-    //   alert('Cliente já relizadou check-In')
-    //   return
-    // }
-
-    this.setState({
-      DataClient: resp.data.dataClient,
-      isLoading: false
-    })
+    this.setState({ DataClient: resp.data.dataClient })
   }
 
   makeCheckIn = async () => {
@@ -171,12 +168,22 @@ class Check extends Component {
           <Button
             background={'#4CAF50'}
             marginLeft={'10px'}
-            onClick={() => this.setState({ openDiolog: true })}>
+            onClick={() => this.modalAlert(
+              'Deseja realizar o check-in do(a) cliente',
+              this.state.DataClient.name)
+            }>
             Confirmar
           </Button>
+
         </ContainerButton>
       </ContainerInput>
     )
+  }
+
+  modalAlert = (title, desc, onPress = () => { }) => {
+    if (window.confirm(`${title}\n\n${desc} ?`)) {
+      this.makeCheckIn()
+    }
   }
 
   renderDialog = () => (
