@@ -70,10 +70,21 @@ const showCustomerInputData = async (token) => {
   }
 }
 
+const getDataAllClients = async () => {
+  try {
+    const response = await api.get('client/getDataAllClients')
+    return response
+
+  } catch (error) {
+    errorHandling(error)
+  }
+}
+
 export {
   userAuthentication,
   getClients,
   getClient,
   registerClientInput,
-  showCustomerInputData
+  showCustomerInputData,
+  getDataAllClients
 }
