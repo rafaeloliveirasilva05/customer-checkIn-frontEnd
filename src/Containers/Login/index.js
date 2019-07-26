@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-
-import { userAuthentication } from '../../functions/fetches'
 import { connect } from 'react-redux'
-import { setUser, setToken } from '../../store/actions'
 import { Spinner } from 'react-activity'
+import { FaEyeSlash, FaEye } from 'react-icons/fa'
 
 import './login.css'
 import { Container, ContainerName, InputText, SubmitButton } from './styles'
+import { userAuthentication } from '../../functions/fetches'
+import { setUser, setToken } from '../../store/actions'
 
 
 class Login extends Component {
@@ -16,7 +16,8 @@ class Login extends Component {
     this.state = {
       login: 'rafael@email.com',
       password: '123456',
-      isLoading: false
+      isLoading: false,
+      showingPassword: false
     }
   }
 
@@ -28,13 +29,13 @@ class Login extends Component {
   }
 
   submitLoginData = async () => {
-    this.setState({isLoading: true})
+    this.setState({ isLoading: true })
     const resp = await userAuthentication({
       email: this.state.login,
       password: this.state.password
     })
 
-    this.setState({isLoading: false})
+    this.setState({ isLoading: false })
 
     if (resp) {
       const { user, token } = resp.data
@@ -57,10 +58,33 @@ class Login extends Component {
 
         <ContainerName>
           <label>Senha</label>
-          <InputText
-            name='password'
-            value={this.state.password}
-            onChange={this.handleInputChange} />
+          <div style={{
+            flexDirection: 'row',
+            display: 'flex',
+            position: 'relative',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <InputText
+              name='password'
+              type={this.state.showingPassword ? 'text' : 'password'}
+              value={this.state.password}
+              onChange={this.handleInputChange}
+              required={true} />
+            <button
+              style={{
+                position: 'absolute',
+                right: 0,
+                border: 'none',
+                background: 'transparent',
+                outline: 'none',
+                marginRight: '12px',
+                cursor: 'pointer'
+              }}
+              onClick={() => this.setState({ showingPassword: !this.state.showingPassword })}>
+              {this.state.showingPassword ? <FaEyeSlash size={28} color={'#ccc'} /> : <FaEye size={28} color={'#ccc'} />}
+            </button>
+          </div>
         </ContainerName>
 
         <SubmitButton
